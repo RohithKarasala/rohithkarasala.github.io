@@ -103,6 +103,8 @@
       color: var(--cyan);
       border-radius: 2px;
       transition: all 0.2s;
+      background: transparent;
+      cursor: pointer;
     }
     .nav-cta:hover {
       background: var(--cyan);
@@ -110,15 +112,233 @@
       text-decoration: none;
     }
 
+    /* ─── CONTACT MODAL ──────────────────────────────────── */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(8,13,26,0.88);
+      backdrop-filter: blur(12px);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .modal {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      width: 100%;
+      max-width: 520px;
+      padding: 2.5rem;
+      position: relative;
+      transform: translateY(16px) scale(0.98);
+      transition: transform 0.25s ease;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+    }
+    .modal-backdrop.open .modal {
+      transform: translateY(0) scale(1);
+    }
+    .modal-close {
+      position: absolute;
+      top: 1.2rem; right: 1.2rem;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0.2rem 0.4rem;
+      border-radius: 2px;
+      transition: color 0.15s;
+    }
+    .modal-close:hover { color: var(--text); }
+    .modal-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--cyan);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .modal-title {
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+    .modal-subtitle {
+      font-size: 0.83rem;
+      color: var(--muted);
+      margin-bottom: 1.8rem;
+      line-height: 1.5;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .form-group.full { margin-bottom: 1rem; }
+    .form-group label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 0.65rem 0.85rem;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: none;
+      width: 100%;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--cyan);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--muted);
+      opacity: 0.5;
+    }
+    .form-group select option { background: var(--surface); }
+    .form-group textarea { min-height: 110px; }
+    .modal-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+    }
+    .modal-direct-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .modal-direct-links a {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      transition: color 0.15s;
+    }
+    .modal-direct-links a:hover { color: var(--cyan); text-decoration: none; }
+    .btn-send {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.6rem;
+      background: var(--cyan);
+      color: var(--bg);
+      font-family: var(--font-head);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-send:hover { opacity: 0.85; transform: translateY(-1px); }
+    .btn-send:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .form-success {
+      text-align: center;
+      padding: 2rem 0;
+      display: none;
+    }
+    .form-success .success-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+    .form-success h3 {
+      font-family: var(--font-head);
+      font-size: 1.3rem;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+    .form-success p { font-size: 0.85rem; color: var(--muted); }
+    .form-error-msg {
+      font-size: 0.78rem;
+      color: #f87171;
+      margin-top: 0.8rem;
+      display: none;
+    }
+
     /* ─── HERO ───────────────────────────────────────────── */
     #hero {
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 4rem;
       padding: 8rem 3rem 4rem;
       position: relative;
       overflow: hidden;
+    }
+    .hero-content { display: flex; flex-direction: column; }
+    .hero-photo-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-photo-ring {
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      padding: 3px;
+      background: conic-gradient(var(--cyan) 0deg, var(--amber) 180deg, var(--cyan) 360deg);
+      animation: spinRing 10s linear infinite;
+      flex-shrink: 0;
+    }
+    @keyframes spinRing { to { transform: rotate(360deg); } }
+    .hero-photo-inner {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      background: var(--card);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-photo-inner img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+      border-radius: 50%;
+      display: block;
+    }
+    .hero-photo-placeholder { font-size: 5rem; color: var(--muted); user-select: none; }
+    .hero-photo-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-align: center;
+    }
+    @media (max-width: 900px) {
+      #hero { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+      .hero-photo-col { order: -1; }
+      .hero-photo-ring { width: 160px; height: 160px; }
+      .hero-tags, .hero-actions, .hero-stats { justify-content: center; }
     }
     .hero-grid-bg {
       position: absolute;
@@ -297,7 +517,7 @@
     /* ─── ABOUT ──────────────────────────────────────────── */
     #about .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 340px;
       gap: 3rem;
       align-items: start;
     }
@@ -308,6 +528,73 @@
       font-size: 0.95rem;
     }
     .about-text p strong { color: var(--text); }
+
+    /* Photo + contact stacked on right */
+    .about-right { display: flex; flex-direction: column; gap: 1.2rem; }
+    .photo-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      text-align: center;
+    }
+    .photo-frame {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 2px solid var(--cyan);
+      padding: 3px;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    /* Placeholder shown when no photo yet */
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: var(--muted);
+    }
+    .photo-name {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .photo-role {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--cyan);
+      letter-spacing: 0.08em;
+    }
+    .photo-open-btn {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 0.35rem 0.9rem;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      border-radius: 2px;
+      cursor: pointer;
+      background: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .photo-open-btn:hover { border-color: var(--cyan); color: var(--cyan); }
     .contact-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -649,7 +936,33 @@
     .edu-field {
       font-size: 0.82rem;
       color: var(--muted);
+      margin-bottom: 1rem;
     }
+    .edu-gpa {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 0.4rem 0.8rem;
+      margin-top: auto;
+    }
+    .edu-gpa-num {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--cyan);
+    }
+    .edu-gpa-num.perfect { color: var(--amber); }
+    .edu-gpa-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+    .edu-card { display: flex; flex-direction: column; }
 
     /* ─── FOOTER ─────────────────────────────────────────── */
     footer {
@@ -706,9 +1019,12 @@
       #hero { padding: 7rem 1.5rem 3rem; }
       .hero-stats { gap: 1.5rem; }
       #about .about-grid { grid-template-columns: 1fr; }
+      .about-right { flex-direction: column-reverse; }
       .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
       #education .edu-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .form-row { grid-template-columns: 1fr; }
+      .modal { padding: 1.8rem; }
     }
   </style>
 </head>
@@ -724,7 +1040,7 @@
       <li><a href="#academic">Academic</a></li>
       <li><a href="#education">Education</a></li>
     </ul>
-    <a href="mailto:rohithkarasala6@gmail.com" class="nav-cta">Hire Me</a>
+    <button class="nav-cta" onclick="openModal()">Hire Me</button>
   </nav>
 
   <!-- ─── HERO ─────────────────────────────────────────────── -->
@@ -732,35 +1048,49 @@
     <div class="hero-grid-bg"></div>
     <div class="hero-glow"></div>
     <div class="hero-glow-2"></div>
-    <p class="hero-eyebrow">// Available for opportunities</p>
-    <h1 class="hero-name">Rohith<br><em>Karasala</em></h1>
-    <p class="hero-subtitle">
-      Senior Engineer · <span class="accent">AI/ML Scholar</span> · AWS Specialist
-    </p>
-    <div class="hero-tags">
-      <span class="tag">Java · Spring Boot</span>
-      <span class="tag">AWS · Microservices</span>
-      <span class="tag">React.js · GraphQL</span>
-      <span class="tag amber">AIML-501 · Indiana Wesleyan</span>
-      <span class="tag amber">Model Development</span>
+
+    <!-- Left: text content -->
+    <div class="hero-content">
+      <p class="hero-eyebrow">// Available for opportunities</p>
+      <h1 class="hero-name">Rohith<br><em>Karasala</em></h1>
+      <p class="hero-subtitle">
+        Senior Engineer · <span class="accent">AI/ML Scholar</span> · AWS Specialist
+      </p>
+      <div class="hero-tags">
+        <span class="tag">Java · Spring Boot</span>
+        <span class="tag">AWS · Microservices</span>
+        <span class="tag">React.js · GraphQL</span>
+        <span class="tag amber">AIML-501 · Indiana Wesleyan</span>
+        <span class="tag amber">Model Development</span>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">7+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Major Clients</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">4.0</div>
+          <div class="stat-label">Current GPA</div>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="#experience" class="btn-primary">View Work ↓</a>
+        <a href="#academic" class="btn-ghost">Academic Portfolio</a>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div class="stat-item">
-        <div class="stat-num">7+</div>
-        <div class="stat-label">Years Experience</div>
+
+    <!-- Right: photo -->
+    <div class="hero-photo-col">
+      <div class="hero-photo-ring">
+        <div class="hero-photo-inner">
+         <img src="assets/rohith.jpg" alt="Rohith Karasala" /> 
+        </div>
       </div>
-      <div class="stat-item">
-        <div class="stat-num">3</div>
-        <div class="stat-label">Major Clients</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">30%</div>
-        <div class="stat-label">Latency Reduced</div>
-      </div>
-    </div>
-    <div class="hero-actions">
-      <a href="#experience" class="btn-primary">View Work ↓</a>
-      <a href="#academic" class="btn-ghost">Academic Portfolio</a>
+      <div class="hero-photo-label">rohith karasala</div>
     </div>
   </div>
 
@@ -789,6 +1119,8 @@
           applying machine learning concepts directly to real-world engineering challenges.
         </p>
       </div>
+
+      <!-- CONTACT QUICK-LINKS -->
       <div class="contact-card fade-in">
         <h3>Contact</h3>
         <div class="contact-item">
@@ -806,6 +1138,11 @@
         <div class="contact-item">
           <span class="icon">🌐</span>
           <a href="https://rohithkarasala.github.io" target="_blank" rel="noopener">rohithkarasala.github.io</a>
+        </div>
+        <div class="contact-item" style="margin-top:0.8rem; border-top: 1px solid var(--border); padding-top: 0.8rem; border-bottom:none;">
+          <button onclick="openModal()" style="background:none;border:none;cursor:pointer;font-family:var(--font-mono);font-size:0.72rem;color:var(--cyan);padding:0;letter-spacing:0.05em;">
+            ✉ Send a message →
+          </button>
         </div>
       </div>
     </div>
@@ -837,8 +1174,8 @@
             <li>Architected microservices using Spring Boot, Spring Security &amp; Spring Cloud — achieving fault tolerance and service resilience at scale.</li>
             <li>Implemented OAuth 2.0 and AWS IAM authentication; maintained PCI-DSS compliance for sensitive financial data.</li>
             <li>Built event-driven architectures using Apache Kafka, AWS Lambda, SNS &amp; SQS for real-time transaction processing.</li>
-            <li>Designed blue-green deployments and canary releases to minimise production risk.</li>
-            <li>Reduced system latency by approximately 30% through distributed architecture optimisations.</li>
+            <li>Designed blue-green deployments and canary releases to minimize production risk.</li>
+            <li>Reduced system latency by approximately 30% through distributed architecture optimizations.</li>
           </ul>
           <div class="exp-stack">
             <span class="stack-chip">Java</span><span class="stack-chip">Spring Boot</span><span class="stack-chip">Apache Spark</span>
@@ -886,7 +1223,7 @@
             <li>Developed Spring JDBC batch jobs to process customer transactions from Oracle, DB2, Teradata, and MySQL databases.</li>
             <li>Implemented persistence layers using Hibernate with Annotations, HQL, Criteria API, and Named Queries.</li>
             <li>Designed microservices architecture with Spring Boot; integrated Apache Kafka for event-driven communication.</li>
-            <li>Applied Spring AOP for centralised exception handling, logging, and cross-cutting concerns.</li>
+            <li>Applied Spring AOP for centralized exception handling, logging, and cross-cutting concerns.</li>
           </ul>
           <div class="exp-stack">
             <span class="stack-chip">Java</span><span class="stack-chip">Spring Boot</span><span class="stack-chip">Hibernate</span>
@@ -1011,12 +1348,10 @@
           </div>
         </div>
         <div class="assignment-body">
-          <div class="assignment-week">WEEK 1 · Assignment 1.5 / 2.4 / 3.4 / 4.4 / 5.4</div>
+          <div class="assignment-week">WEEK 1 · Assignment 1.5 </div>
           <div class="assignment-title">Visual Framework of Machine Learning Algorithms</div>
           <div class="assignment-desc">
-            An infographic classifying 8–10 ML algorithms by type (Supervised/Unsupervised),
-            application domain (Tabular, CV, NLP, GenAI), real-world use cases, and brief
-            explanations of how each algorithm works.
+            Placeholder
           </div>
           <div class="assignment-footer">
             <span class="assignment-status status-pending">In Progress</span>
@@ -1070,16 +1405,28 @@
         <div class="edu-degree">Master of Science</div>
         <div class="edu-school">University of Cincinnati, USA</div>
         <div class="edu-field">Information Technology</div>
+        <div class="edu-gpa">
+          <span class="edu-gpa-num">3.93</span>
+          <span class="edu-gpa-label">GPA / 4.0</span>
+        </div>
       </div>
       <div class="edu-card fade-in">
-        <div class="edu-degree">Graduate Certificate (In Progress)</div>
+        <div class="edu-degree">Master of Science (In Progress)</div>
         <div class="edu-school">Indiana Wesleyan University, USA</div>
-        <div class="edu-field">AI/ML Model Development · AIML-501</div>
+        <div class="edu-field">Computer Information Systems – AI Specialization</div>
+        <div class="edu-gpa">
+          <span class="edu-gpa-num perfect">4.0</span>
+          <span class="edu-gpa-label">GPA · Perfect Score</span>
+        </div>
       </div>
       <div class="edu-card fade-in">
         <div class="edu-degree">Bachelor of Technology</div>
         <div class="edu-school">Vardhaman College of Engineering, India</div>
         <div class="edu-field">Electronics &amp; Communication Engineering</div>
+        <div class="edu-gpa">
+          <span class="edu-gpa-num">3.5</span>
+          <span class="edu-gpa-label">GPA / 4.0</span>
+        </div>
       </div>
     </div>
   </section>
@@ -1095,8 +1442,79 @@
     </div>
   </footer>
 
-  <!-- ─── SCROLL ANIMATIONS ─────────────────────────────────── -->
+  <!-- ─── CONTACT MODAL ────────────────────────────────────── -->
+  <div class="modal-backdrop" id="contactModal" role="dialog" aria-modal="true" aria-label="Contact Rohith">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+
+      <!-- Form view -->
+      <div id="formView">
+        <div class="modal-eyebrow">// Let's connect</div>
+        <h2 class="modal-title">Get In Touch</h2>
+        <p class="modal-subtitle">
+          Send a message and I'll get back to you within 24 hours.
+          Looking for opportunities, collaboration, or just want to say hi.
+        </p>
+
+        <!--
+          FORMSPREE SETUP (one-time, 5 min):
+          1. Go to https://formspree.io and sign up for free
+          2. Create a new form → it gives you an ID like "xblahblah"
+          3. Replace "YOUR_FORM_ID" below with your actual ID
+          That's it — submissions land directly in your inbox.
+        -->
+        <form id="contactForm" action="https://formspree.io/f/meenvwnd" method="POST">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Your Name</label>
+              <input type="text" id="fname" name="name" placeholder="Jane Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="femail">Email</label>
+              <input type="email" id="femail" name="email" placeholder="jane@company.com" required />
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <label for="fsubject">Subject</label>
+            <select id="fsubject" name="subject">
+              <option value="Job Opportunity">Job Opportunity</option>
+              <option value="Freelance / Contract">Freelance / Contract</option>
+              <option value="Collaboration">Collaboration</option>
+              <option value="Speaking / Mentorship">Speaking / Mentorship</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label for="fmessage">Message</label>
+            <textarea id="fmessage" name="message" placeholder="Tell me a bit about the opportunity or what you have in mind…" required></textarea>
+          </div>
+
+          <div class="modal-actions">
+            <div class="modal-direct-links">
+              <a href="https://linkedin.com/in/rohith-karasala" target="_blank">LinkedIn ↗</a>
+              <a href="mailto:rohithkarasala6@gmail.com">Email directly ↗</a>
+            </div>
+            <button type="submit" class="btn-send" id="sendBtn">Send →</button>
+          </div>
+          <div class="form-error-msg" id="formError">Something went wrong. Please email me directly.</div>
+        </form>
+      </div>
+
+      <!-- Success view -->
+      <div class="form-success" id="successView">
+        <div class="success-icon">✅</div>
+        <h3>Message Sent!</h3>
+        <p>Thanks for reaching out. I'll reply to your email within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── SCRIPTS ───────────────────────────────────────────── -->
   <script>
+    // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -1105,8 +1523,56 @@
         }
       });
     }, { threshold: 0.08 });
-
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Modal logic
+    const modal = document.getElementById('contactModal');
+
+    function openModal() {
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close on backdrop click
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Form submission via fetch (Formspree AJAX)
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('sendBtn');
+      const errorEl = document.getElementById('formError');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      errorEl.style.display = 'none';
+
+      try {
+        const res = await fetch(e.target.action, {
+          method: 'POST',
+          body: new FormData(e.target),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          document.getElementById('formView').style.display = 'none';
+          document.getElementById('successView').style.display = 'block';
+        } else {
+          throw new Error('Server error');
+        }
+      } catch {
+        errorEl.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Send →';
+      }
+    });
   </script>
 
 </body>
