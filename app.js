@@ -36,12 +36,15 @@ function renderHero() {
         <div class="hero-actions">
           <a href="#experience" class="btn-primary">View Work ↓</a>
           <a href="#academic" class="btn-ghost">Academic Portfolio</a>
+          <a href="${profile.resumeUrl}" class="btn-ghost" target="_blank" rel="noopener">
+            Resume
+          </a>
         </div>
       </div>
       <div class="hero-photo-col">
         <div class="hero-photo-card">
           <div class="hero-photo-frame"><img src="${profile.image}" alt="${profile.imageAlt}" /></div>
-          <div class="photo-status"><div><strong>${profile.name}</strong><br><span>Backend Engineer · AI/ML</span></div><div class="status-dot" title="Available"></div></div>
+          <div class="photo-status"><div><strong>${profile.name}</strong><br><span>Java Backend / Full Stack Engineer · Spring Boot · AWS · React.js</span></div><div class="status-dot" title="Available"></div></div>
         </div>
       </div>
     </div>
