@@ -28,7 +28,13 @@ function renderHero() {
         <h1 class="hero-name">${firstName}<br><em>${lastName}</em></h1>
         <p class="hero-subtitle">${profile.headline} · <span class="accent">${profile.highlight}</span> · ${profile.secondary}</p>
         <div class="hero-tags">
-          ${profile.tags.map(tag => `<span class="tag ${tag.accent ? 'amber' : ''}">${tag.label}</span>`).join('')}
+          ${profile.tags.map((tag) => {
+            const cls = `tag ${tag.accent ? 'amber' : ''}`;
+            if (tag.experienceSlug) {
+              return `<a href="#exp-${tag.experienceSlug}" class="${cls}">${tag.label}</a>`;
+            }
+            return `<span class="${cls}">${tag.label}</span>`;
+          }).join('')}
         </div>
         <div class="hero-stats">
           ${profile.stats.map(stat => `<div class="stat-item"><div class="stat-num">${stat.value}</div><div class="stat-label">${stat.label}</div></div>`).join('')}
@@ -79,7 +85,7 @@ function renderExperience() {
       ${sectionHeader('02', 'Experience')}
       <div class="exp-list">
         ${experience.map(job => `
-          <div class="exp-item fade-in">
+          <div class="exp-item fade-in" id="exp-${job.slug}">
             <div class="exp-meta"><div class="exp-period">${job.period}</div><div class="exp-company">${job.company}</div><div class="exp-location">${job.location}</div></div>
             <div class="exp-content">
               <div class="exp-role">${job.role}</div>

@@ -9,9 +9,9 @@ export const profile = {
   resumeUrl: 'assets/Rohith_Karasala_Resume.pdf',
   imageAlt: 'Rohith Karasala',
   tags: [
-    { label: 'Amazon' },
-    { label: 'Axa Insurance' },
-    { label: 'Maisa Solutions Pvt. Ltd.' },
+    { label: 'Amazon Web Services', experienceSlug: 'amazon' },
+    { label: 'AXA Insurance', experienceSlug: 'axa' },
+    { label: 'Maisa Solutions', experienceSlug: 'maisa' },
   ],
   stats: [
     { value: '7+', label: 'Years Experience' },

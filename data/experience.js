@@ -1,5 +1,6 @@
 export const experience = [
   {
+    slug: 'amazon',
     period: 'Sep 2022 – Apr 2026',
     company: 'Amazon Web Services',
     location: 'Seattle, USA',
@@ -15,6 +16,7 @@ export const experience = [
     stack: ['Java', 'Spring Boot', 'AWS Glue', 'Lambda', 'Kafka', 'GraphQL', 'React.js', 'Docker', 'Jenkins', 'PostgreSQL', 'MongoDB']
   },
   {
+    slug: 'axa',
     period: 'Jul 2019 – Aug 2021',
     company: 'AXA Insurance',
     location: 'Bangalore, India',
@@ -29,8 +31,9 @@ export const experience = [
     stack: ['Java', 'Spring Boot', 'Kafka', 'React.js', 'Oracle', 'MongoDB', 'Docker', 'Jenkins', 'UiPath']
   },
   {
+    slug: 'maisa',
     period: 'Sep 2018 – Jul 2019',
-    company: 'Maisa Solutions Pvt. Ltd.',
+    company: 'Maisa Solutions',
     location: 'Hyderabad, India',
     role: 'Software Engineer',
     highlights: [

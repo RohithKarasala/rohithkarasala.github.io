@@ -56,3 +56,17 @@ footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;align-i
     font-size: 0.7rem;
   }
 }
+
+/* Hero company tags → in-page experience anchors */
+a.tag {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+}
+a.tag:hover {
+  text-decoration: none;
+  filter: brightness(1.08);
+}
+.exp-item[id] {
+  scroll-margin-top: 5.5rem;
+}
