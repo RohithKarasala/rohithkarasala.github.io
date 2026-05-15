@@ -1,7 +1,7 @@
 export const experience = [
   {
     slug: 'amazon',
-    period: 'Sep 2022 – Apr 2026',
+    period: 'Sep 2022 – Present',
     company: 'Amazon Web Services',
     location: 'Seattle, USA',
     role: 'Software Development Engineer',
