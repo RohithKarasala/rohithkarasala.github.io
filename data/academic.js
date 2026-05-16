@@ -7,13 +7,16 @@ export const academic = {
   assignments: [
     {
       week: 'WEEK 1 · Assignment 1.5',
-      title: 'Visual Framework of Machine Learning Algorithms',
-      description: 'A visual academic artifact explaining major machine learning algorithm families, use cases, and model development considerations.',
-      status: 'In Progress',
-      statusType: 'pending',
-      icon: '🧠',
-      previewLabel: 'ML ALGORITHMS FRAMEWORK',
-      link: '#'
+      title: 'Popular AI/ML Models',
+      category: 'Machine Learning',
+      description: 'A visual framework explaining popular AI/ML models by learning type, application domain, real-world use case, and basic working process.',
+      objective: 'To compare common AI/ML models and explain how they apply to tabular data, computer vision, natural language processing, and generative AI.',
+      tools: ['GitHub Pages', 'HTML', 'CSS', 'JavaScript', 'Google Slides', 'ChatGPT', 'Machine Learning Concepts'],
+      status: 'Completed',
+      statusType: 'complete',
+      previewLabel: 'Visual Framework',
+      link: 'artifacts/ml-models-framework.html',
+      image: 'assets/ml-models-cover.png'
     },
     {
       week: 'WEEK 2 · Upcoming',

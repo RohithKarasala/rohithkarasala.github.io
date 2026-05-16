@@ -29,12 +29,12 @@ function renderHero() {
         <p class="hero-subtitle">${profile.headline} · <span class="accent">${profile.highlight}</span> · ${profile.secondary}</p>
         <div class="hero-tags">
           ${profile.tags.map((tag) => {
-            const cls = `tag ${tag.accent ? 'amber' : ''}`;
-            if (tag.experienceSlug) {
-              return `<a href="#exp-${tag.experienceSlug}" class="${cls}">${tag.label}</a>`;
-            }
-            return `<span class="${cls}">${tag.label}</span>`;
-          }).join('')}
+    const cls = `tag ${tag.accent ? 'amber' : ''}`;
+    if (tag.experienceSlug) {
+      return `<a href="#exp-${tag.experienceSlug}" class="${cls}">${tag.label}</a>`;
+    }
+    return `<span class="${cls}">${tag.label}</span>`;
+  }).join('')}
         </div>
         <div class="hero-stats">
           ${profile.stats.map(stat => `<div class="stat-item"><div class="stat-num">${stat.value}</div><div class="stat-label">${stat.label}</div></div>`).join('')}
@@ -128,21 +128,29 @@ function renderAcademic() {
       <div class="assignments-grid">
         ${academic.assignments.map(a => `
           <div class="assignment-card fade-in" ${a.disabled ? 'style="opacity:.5;pointer-events:none;"' : ''}>
-            <div class="assignment-preview">
-              ${a.image ? `<img src="${a.image}" alt="${a.title}" />` : `<div class="preview-placeholder"><span class="preview-icon">${a.icon}</span><span class="preview-label">${a.previewLabel}</span></div>`}
-            </div>
-            <div class="assignment-body">
-              <div class="assignment-week">${a.week}</div>
-              <div class="assignment-title">${a.title}</div>
-              <div class="assignment-desc">${a.description}</div>
-              <div class="assignment-footer">
-                <span class="assignment-status status-${a.statusType}">${a.status}</span>
-                ${a.link ? `<a href="${a.link}" class="assignment-link">View Artifact →</a>` : ''}
-              </div>
-            </div>
-          </div>
-        `).join('')}
+      <div class="assignment-preview">
+        ${a.image
+      ? `<img src="${a.image}" alt="${a.title}" loading="lazy" />`
+      : `<div class="preview-placeholder">
+              <span class="preview-icon">${a.icon || '📄'}</span>
+              <span class="preview-label">${a.previewLabel || 'Coming Soon'}</span>
+            </div>`
+    }
       </div>
+
+      <div class="assignment-body">
+        <div class="assignment-week">${a.week}</div>
+        <div class="assignment-title">${a.title}</div>
+        <div class="assignment-desc">${a.description}</div>
+
+        <div class="assignment-footer">
+          ${a.status ? `<span class="assignment-status status-${a.statusType || 'default'}">${a.status}</span>` : ''}
+          ${a.link ? `<a href="${a.link}" class="assignment-link">View Artifact →</a>` : ''}
+        </div>
+      </div>
+    </div>
+  `).join('')}
+</div>
     </section>
   `);
 }
