@@ -26,8 +26,8 @@ export const academic = {
       statusType: 'pending',
       icon: '📋',
       previewLabel: 'WEEK 2 COMING SOON',
-      link: null,
-      disabled: true
+      image: 'assets/week-2-cover.png',
+      link: 'artifacts/week-2.pptx'
     }
   ]
 };
