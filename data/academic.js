@@ -19,15 +19,17 @@ export const academic = {
       image: 'assets/ml-models-cover.png'
     },
     {
-      week: 'WEEK 2 · Upcoming',
-      title: 'Assignment TBD',
-      description: 'This assignment will be added when the next module is released.',
-      status: 'Upcoming',
-      statusType: 'pending',
-      icon: '📋',
-      previewLabel: 'WEEK 2 COMING SOON',
-      image: 'assets/week-2-cover.png',
-      link: 'artifacts/week-2.pptx'
+      week: 'WEEK 2 · Assignment 2.4',
+      title: 'Visualizing Neural Networks',
+      category: 'Neural Networks',
+      description: 'A visual presentation explaining neural network components, including layers, neurons, weights, activation functions, loss functions, and optimization algorithms.',
+      objective: 'To illustrate how data flows through a neural network and explain how each major component contributes to learning, prediction, and model improvement.',
+      tools: ['GitHub Pages', 'HTML', 'CSS', 'JavaScript', 'PowerPoint', 'ChatGPT', 'Neural Network Playground', 'Neural Network Concepts'],
+      status: 'Completed',
+      statusType: 'complete',
+      previewLabel: 'Neural Network Visualization',
+      link: 'artifacts/week-2.pdf',
+      image: 'assets/week-2-cover.png'
     }
   ]
 };
