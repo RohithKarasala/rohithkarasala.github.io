@@ -15,8 +15,8 @@ export const academic = {
       status: 'Completed',
       statusType: 'complete',
       previewLabel: 'Visual Framework',
-      link: 'artifacts/ml-models-framework.html',
-      image: 'assets/ml-models-cover.png'
+      link: 'artifacts/week-1.html',
+      image: 'assets/week-1-cover.png'
     },
     {
       week: 'WEEK 2 · Assignment 2.4',
@@ -30,6 +30,19 @@ export const academic = {
       previewLabel: 'Neural Network Visualization',
       link: 'artifacts/week-2.pdf',
       image: 'assets/week-2-cover.png'
+    },
+    {
+      week: 'WEEK 3 · Assignment 3.5',
+      title: 'Inside the LLM Training Factory',
+      category: 'Generative AI',
+      description: 'A visual artifact explaining how generative AI large language models are trained, including the data pipeline, compute infrastructure, energy requirements, time investment, cost drivers, and deployment process.',
+      objective: 'To illustrate the end-to-end training lifecycle of generative AI large language models from data collection through model deployment, while highlighting the major resources required to train and operate these systems.',
+      tools: ['GitHub Pages', 'HTML', 'CSS', 'JavaScript', 'ChatGPT', 'Generative AI Concepts', 'LLM Training Research', 'AI Infrastructure Concepts'],
+      status: 'Completed',
+      statusType: 'complete',
+      previewLabel: 'LLM Training Infographic',
+      link: 'artifacts/week-3.html',
+      image: 'assets/week-3-cover.png'
     }
   ]
 };
