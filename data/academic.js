@@ -28,7 +28,7 @@ export const academic = {
       status: 'Completed',
       statusType: 'complete',
       previewLabel: 'Neural Network Visualization',
-      link: 'artifacts/week-2.pdf',
+      link: 'artifacts/week-2.html',
       image: 'assets/week-2-cover.png'
     },
     {
