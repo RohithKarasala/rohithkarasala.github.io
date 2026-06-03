@@ -43,6 +43,19 @@ export const academic = {
       previewLabel: 'LLM Training Infographic',
       link: 'artifacts/week-3.html',
       image: 'assets/week-3-cover.png'
+    },
+    {
+      week: 'WEEK 4 · Assignment 4.4',
+      title: 'Explainable AI, Validation & Trust',
+      category: 'Explainable AI',
+      description: 'A visual artifact explaining how explainability, validation techniques, performance metrics, and industry practices help build trust in modern language models such as GPT, Claude, Gemini, and LLaMA.',
+      objective: 'To illustrate why transparency in AI matters, identify key challenges in explainability, and show how validation methods and performance metrics support reliability, accountability, and responsible AI deployment.',
+      tools: ['GitHub Pages', 'HTML', 'CSS', 'JavaScript', 'ChatGPT', 'Explainable AI Research', 'AI Governance Concepts', 'Validation Metrics'],
+      status: 'Completed',
+      statusType: 'complete',
+      previewLabel: 'Explainable AI Infographic',
+      link: 'artifacts/week-4.html',
+      image: 'assets/week-4-cover.png'
     }
   ]
 };
