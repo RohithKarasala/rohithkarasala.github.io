@@ -56,6 +56,19 @@ export const academic = {
       previewLabel: 'Explainable AI Infographic',
       link: 'artifacts/week-4.html',
       image: 'assets/week-4-cover.png'
+    },
+    {
+      week: 'WEEK 5 · Assignment 5.4',
+      title: 'Pre-Trained Model Selection Decision Matrix',
+      category: 'Model Selection',
+      description: 'A visual decision matrix comparing pre-trained models across NLP, computer vision, and tabular data based on model size, accuracy, speed, interpretability, and practical deployment considerations.',
+      objective: 'To evaluate how different pre-trained models balance performance, computational requirements, inference speed, and explainability, and to recommend suitable models for specific real-world application scenarios.',
+      tools: ['GitHub Pages', 'HTML', 'CSS', 'JavaScript', 'ChatGPT', 'Model Documentation', 'AI/ML Research', 'Decision Matrix Design'],
+      status: 'Completed',
+      statusType: 'complete',
+      previewLabel: 'Model Selection Matrix',
+      link: 'artifacts/week-5.html',
+      image: 'assets/week-5-cover.png'
     }
   ]
 };
