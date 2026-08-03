@@ -188,6 +188,12 @@ a.tag:hover {
     color: #dbeafe;
     line-height: 1.55;
   }
+
+  .course-badge {
+    background: rgba(16, 185, 129, 0.15);
+    border-color: rgba(16, 185, 129, 0.25);
+    color: var(--green);
+  }
   
   /* Image */
   .artifact-image {

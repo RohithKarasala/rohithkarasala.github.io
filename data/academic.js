@@ -1,8 +1,8 @@
 export const academic = {
   course: {
     name: 'Model Development — AIML-501-01R3D',
-    meta: 'Indiana Wesleyan University · 3SU2026 · Active Enrollment',
-    badge: 'In Progress'
+    meta: 'Indiana Wesleyan University · 3SU2026 · Completed',
+    badge: 'Completed'
   },
   assignments: [
     {
